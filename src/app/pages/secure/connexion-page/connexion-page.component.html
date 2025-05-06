@@ -1,0 +1,50 @@
+<div class="bg-gray-100 h-screen w-screen flex items-center justify-center ">
+  <div class="flex h-1/2 w-1/2 shadow-lg">
+    <div class="h-full w-1/2 rounded-l-sm">
+      <img alt="login" class="h-full w-full object-cover" src="/assets/images/login.jpg">
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="p-4 bg-white h-full w-1/2 pt-8 block ">
+      <h1 class="font-semibold italic uppercase text-center text-gray-600 mb-4 p-3 rounded-sm bg-gray-50">Formulaire de
+        connexion</h1>
+
+      <div class="bg-red-100 text-sm italic text-red-600 rounded mb-2">
+        {{ error }}
+      </div>
+      <div class="mb-4">
+        <label class="text-gray-600 italic font-light mb-2 block" for="login">Login</label>
+        <input #login="ngModel" class="p-3 w-full rounded-sm border border-gray-300 outline-none italic font-sans"
+               id="login"
+               name="login"
+               ngModel required type="text">
+
+        @if (login.invalid && login.touched) {
+          <div class="text-red-500 italic text-sm">
+            Champ obligatoire
+          </div>
+        }
+      </div>
+      <div class="mb-4">
+        <label class="text-gray-600 italic font-light mb-2 block" for="password">Password</label>
+        <input #password="ngModel" class="p-3 w-full rounded-sm border border-gray-300 outline-none italic font-sans"
+               id="password"
+               name="password" ngModel
+               required type="password">
+        @if (password.invalid && password.touched) {
+          <div class="text-red-500 italic text-sm">
+            Champ obligatoire
+          </div>
+        }
+      </div>
+
+      <div class="flex justify-end">
+        <button
+          [disabled]="!loginForm.valid"
+          class="bg-blue-500 text-white p-3 rounded-sm italic font-light hover:bg-blue-600 transition-colors "
+          type="submit">
+          Connexion
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

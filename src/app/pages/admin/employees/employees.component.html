@@ -1,0 +1,137 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div
+    class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
+    <div>
+      <button
+        class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+        type="button">
+        Action
+        <svg aria-hidden="true" class="w-6 h-6  dark:text-white" fill="none"
+             height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14m-7 7V5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2"/>
+        </svg>
+
+      </button>
+
+    </div>
+    <label class="sr-only" for="table-search">Search</label>
+    <div class="relative">
+      <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+        <svg aria-hidden="true" class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none"
+             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"/>
+        </svg>
+      </div>
+      <input
+        class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        id="table-search-users"
+        placeholder="Search for users"
+        type="text">
+    </div>
+  </div>
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <tr>
+      <th class="px-6 py-3" scope="col">
+        #
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Nom Complet
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Matricule
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Emploi
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Département
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Niveau
+      </th>
+      <th class="px-6 py-3" scope="col">
+        Action
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (employe of employees; track employe.id) {
+        <tr
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <td class="px-6 py-4">
+            {{ employe.id }}
+          </td>
+          <th class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white" scope="row">
+            <img alt="{{employe.nom}}" class="w-10 h-10 rounded-full" src="/assets/images/login.jpg" width="400"
+                 height="300">
+            <div class="ps-3">
+              <div class="text-base font-semibold"> {{ employe.nom }}  {{ employe.prenom }}</div>
+              <div class="font-normal text-gray-500">{{ employe.email }}</div>
+            </div>
+          </th>
+          <td class="px-6 py-4">
+            {{ employe.matricule }}
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+              {{ employe.emploi }}
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+              {{ employe.departement }}
+            </div>
+          </td>
+          <td class="px-6 py-4">
+            <div class="flex items-center">
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+              {{ employe.niveau }}
+            </div>
+          </td>
+
+          <td class="px-6 py-4 flex space-x-3">
+            <button (click)="detail(employe.id)"
+                    class="p-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none"
+                   height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z" stroke="currentColor"
+                      stroke-width="2"/>
+                <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+
+            </button>
+            <button (click)="goToDetail(employe.id)"
+                    class="p-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              <svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="none"
+                   height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5 17v-5h1.5a1.5 1.5 0 1 1 0 3H5m12 2v-5h2m-2 3h2M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5m6 4v5h1.375A1.627 1.627 0 0 0 14 15.375v-1.75A1.627 1.627 0 0 0 12.375 12H11Z"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2"/>
+              </svg>
+
+            </button>
+
+            <button (click)="edit(employe.id)"
+                    class="p-3 rounded-lg font-medium text-blue-600 dark:text-blue-500 hover:underline">
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                   width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10.779 17.779 4.36 19.918 6.5 13.5m4.279 4.279 8.364-8.643a3.027 3.027 0 0 0-2.14-5.165 3.03 3.03 0 0 0-2.14.886L6.5 13.5m4.279 4.279L6.499 13.5m2.14 2.14 6.213-6.504M12.75 7.04 17 11.28"/>
+              </svg>
+
+            </button>
+
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+</div>

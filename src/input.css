@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --diplay-font: "IBM Plex Mono", monospace;
+  --diplay-bg-bull: #bbf7d0;
+}

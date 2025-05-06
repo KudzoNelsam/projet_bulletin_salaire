@@ -1,0 +1,157 @@
+<!-- bulletin-paie.component.html -->
+<div #bulletin class="p-5 h-full w-full mb-2" id="bulletin">
+
+  <div class="grid grid-cols-8 grid-rows-8 border-collapse divide-x-1 h-full divide-gray-500 border border-gray-500">
+    <div class="col-span-2 bg-green-200 p-3 text-center border border-gray-500 border-t-0 border-l-0 border-r-0">
+      BULLETIN DE PAIE
+    </div>
+    <div class="col-span-3 col-start-3 p-3 text-left border-gray-500 border border-l-1 border-t-0">
+      <p class="flex">Période du : <span class="font-medium italic mx-5 block">{{ bulletinDePaie!.periodeDebut }}</span>
+        au: <span
+          class="font-medium italic ml-5 block">{{ bulletinDePaie!.periodeFin }}</span></p>
+    </div>
+    <div class="col-span-3 col-start-6 p-3 border-b-1 border-0 border-gray-500">
+      <p class="flex">Paiement le : <span
+        class="font-medium italic mx-5 block">{{ bulletinDePaie!.datePaiement }}</span> par: <span
+        class="font-medium italic ml-5 block">{{ bulletinDePaie!.moyenPaiement }}</span></p>
+    </div>
+    <div class="col-span-2 row-span-3 row-start-2 p-3 border-b-1 border-r-1 border-b-gray-500 border-0">
+      <p>28110 <span>Dakar</span></p>
+      <p>N°SIRET : </p>
+      <p>APE/NAF</p>
+    </div>
+    <div class="col-start-3 row-start-2 p-3 border-b-1 border-b-gray-500 border-0 border-r-1">
+      <p>Matricule</p>
+      <p>{{ employee!.matricule }}</p>
+    </div>
+    <div class="col-start-4 row-start-2 p-3 border-b-1 border-b-gray-500 border-0 border-r-1">
+      <p>Niveau</p>
+      <p>3.5</p>
+    </div>
+    <div class="col-start-5 row-start-2 p-3 border-b-1 border-b-gray-500 border-0 border-r-1">
+      <p>Cœfficient</p>
+      <p>{{ employee!.coefficient }}</p>
+    </div>
+    <div class="col-start-6 row-start-2 p-3 border-b-1 border-b-gray-500 border-0 border-r-1">
+      <p>Indice</p>
+      <p>{{ employee!.indice }}</p>
+    </div>
+    <div class="col-start-7 row-start-2 p-3 border-b-1 border-b-gray-500 border-0 border-r-1">
+      <p>Ancienneté</p>
+      <p>{{ employee!.anciennete }}</p>
+    </div>
+    <div class="col-start-8 row-start-2 p-3 border-b-1 border-b-gray-500 border-0">
+      <p>N° de Sécurité Sociale</p>
+      <p>{{ employee!.numeroSecuriteSociale }}</p>
+    </div>
+    <div class="col-span-2 col-start-3 row-start-3 p-3 border border-t-0 border-l-0 border-b-gray-500">
+      <p>Catégorie</p>
+      <p>{{ employee!.categorie }}</p>
+    </div>
+    <div class="col-span-2 col-start-5 row-start-3 p-3 border border-t-0 border-l-0 border-b-gray-500">
+      <p>Emploi occupé</p>
+      <p>{{ employee!.emploi }}</p>
+    </div>
+    <div class="col-span-2 col-start-7 row-start-3 p-3 border border-t-0 border-l-0 border-b-gray-500">
+      <p>Département</p>
+      <p>{{ employee!.departement }}</p>
+    </div>
+    <div class="col-span-2 col-start-3 row-start-4 p-3 border border-b-gray-500 border-t-0 border-l-0">
+      <p>Qualification</p>
+      <p></p>
+    </div>
+    <div class="col-start-5 row-start-4 p-3 border border-b-gray-500 border-t-0 border-l-0">
+      <p>Horaire</p>
+      <p>{{ employee!.horaire }}</p>
+    </div>
+    <div class="col-span-3 col-start-6 row-start-4 p-3 border border-b-gray-500 border-t-0 border-l-0">
+      CCN COMMERCE
+    </div>
+    <div class="col-span-2 row-span-2 row-start-5">20</div>
+    <div class="col-span-2 row-span-2 col-start-3 row-start-5">21</div>
+    <div class="col-span-4 row-span-4 col-start-5 row-start-5 bg-green-200 p-3">
+      <p>M</p>
+    </div>
+    <div class="row-start-7 p-3 border-t-1 border-b-gray-500 border-b-1 text-center">
+      <p class="mt-4">Repos Comp.</p>
+      <p>Congés</p>
+    </div>
+    <div class="row-start-7 p-3 border-t-1 border-b-gray-500 border-b-1 text-center">
+      <p>Acquis</p>
+      <p class="text-right">0.000</p>
+      <p class="text-right">0.000</p>
+    </div>
+    <div class="row-start-7 p-3 border-t-1 border-b-gray-500 border-b-1 text-center">
+      <p>Reste à prendre</p>
+      <p class="text-right">0.000</p>
+      <p class="text-right">0.000</p>
+    </div>
+    <div class="row-start-7 p-3 border-t-1 border-b-gray-500 border-b-1 text-center">
+      <p>Pris</p>
+      <p class="text-right">0.000</p>
+      <p class="text-right">0.000</p>
+    </div>
+    <div class="row-start-8 p-3 border-r-0">
+      <p>Dettes de congés : </p>
+    </div>
+    <div class="row-start-8 p-3 border-l-0 border-b-gray-500 border-0">
+      <p>du</p>
+      <p>au</p>
+    </div>
+    <div class="row-start-8 p-3 border-l-0 border-r-0">
+      <p>du</p>
+      <p>au</p>
+    </div>
+    <div class="row-start-8  p-3 border-r-1 ">
+      <p>du</p>
+      <p>au</p>
+    </div>
+    <div class="col-start-8 row-start-9 border-t-1 border-gray-500 p-5"></div>
+    <div class="col-start-7 row-start-9 border-t-1 border-gray-500 p-5"></div>
+    <div class="col-start-6 row-start-9 border-t-1 border-gray-500 p-5 border-l-1"></div>
+    <div class="col-span-5 col-start-1 row-start-9 border-t-1 border-gray-500 p-1">Commentaires :</div>
+  </div>
+  <table class="w-full border-collapse border border-gray-500 border-t-0">
+    <thead class="w-full bg-gray-100 font-bold italic">
+    <tr class="bg-gray-100 font-bold italic w-full">
+      <td class="p-3 border border-b-gray-500 border-t-0" rowspan="2">N°</td>
+      <td class="p-3 border border-b-gray-500 border-t-0" rowspan="2">Désignation</td>
+      <td class="p-3 border border-b-gray-500 border-t-0" rowspan="2">Nombre</td>
+      <td class="p-3 border border-b-gray-500 border-t-0" rowspan="2">Base</td>
+      <td class="p-3 border border-b-gray-500 border-t-0" colspan="3">Part Salariale</td>
+      <td class="p-3 border border-b-gray-500 border-t-0" colspan="3">Part Patronale</td>
+    </tr>
+    <tr>
+      <td class="p-3 border border-b-gray-500">Taux</td>
+      <td class="p-3 border border-b-gray-500">Gain</td>
+      <td class="p-3 border border-b-gray-500">Retenue</td>
+      <td class="p-3 border border-b-gray-500">Taux</td>
+      <td class="p-3 border border-b-gray-500">Retenue(+)</td>
+      <td class="p-3 border border-b-gray-500">Retenue(-)</td>
+    </tr>
+    </thead>
+    <tbody>
+      @for (ligne of bulletinDePaie!.lignes; track ligne.numero) {
+        <tr class=" w-full border-b-1 border-gray-500">
+          <td class="p-3 border border-gray-500 border-b-1">{{ ligne.numero }}</td>
+          <td class="p-3 border border-gray-500 border-b-1">{{ ligne.designation }}</td>
+          <td class="p-3 border border-gray-500 border-b-1">{{ ligne.nombre }}</td>
+          <td class="p-3 border border-gray-500 border-b-1">{{ ligne.base }}</td>
+          <td class="p-3 border border-gray-500 border-b-1">-</td>
+          <td class="p-3 border border-gray-500 border-b-1">195119</td>
+          <td class="p-3 border border-gray-500 border-b-1"></td>
+          <td class="p-3 border border-gray-500 border-b-1"></td>
+          <td class="p-3 border border-gray-500 border-b-1"></td>
+          <td class="p-3 border border-gray-500 border-b-1"></td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+
+</div>
+
+<button (click)="generatePDF()"
+        class="p-2 bg-gray-100 text-gray-700 rounded font-bold italic cursor-pointer hover:bg-gray-200">
+  Imprimer PDF
+</button>
